@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-google-map msg="Welcome to Your Vue.js App"/>
+    <vue-google-map />
   </div>
 </template>
 
