@@ -33,29 +33,37 @@ export default {
 		}
 	},
 
-	mounted() {
-		this.initMap()
+	async mounted() {
+		await this.initMap()
+		this.initMarker()
 	},
 
 	methods: {
-		initMap() {
+		async initMap() {
 			const loader = new Loader({
 				apiKey: "AIzaSyDIlRaooXNccBRbh5nnuT7dYEdejLkSvn4",
 				version: "weekly",
 				libraries: ["places"]
 			});
-			loader.load().then((google) => {
-				console.log('google', google)
-				this.google = google
-				this.map = new google.maps.Map(this.$refs.gmap, {
-					center: this.center,
-					zoom: 14,
-				});
 
-				this.initMarker()
-				this.geocoder = new google.maps.Geocoder();
-				// this.showAutoComplete()
-			})
+			this.google = await loader.load()
+			this.map = new google.maps.Map(this.$refs.gmap, {
+				center: this.center,
+				zoom: 14,
+			});
+
+			// loader.load().then((google) => {
+			// 	console.log('google', google)
+			// 	this.google = google
+			// 	this.map = new google.maps.Map(this.$refs.gmap, {
+			// 		center: this.center,
+			// 		zoom: 14,
+			// 	});
+
+			// 	// this.initMarker()
+			// 	this.geocoder = new google.maps.Geocoder();
+			// 	// this.showAutoComplete()
+			// })
 		},
 
 		initMarker() {
