@@ -9,8 +9,8 @@ const googleMapApi = {
         return loader
     },
     
-    initMap: (center) => {
-        map = new google.maps.Map(this.$refs.gmap, {
+    initMap: (mapElement, center) => {
+        map = new google.maps.Map(mapElement, {
             center: center,
             zoom: 14,
         })
@@ -33,9 +33,9 @@ const googleMapApi = {
 async function installGoogleMapPlugin(Vue, options) {
     google = await googleMapApi.loadGoogleApi(options).load()
 
-    // Vue.prototype.$google = google
     // Vue.prototype.$googleMapApi = googleMapApi
-    Vue.prototype.$googleMapApi = 'abc'
+    Vue.prototype.$google = google
+    Vue.prototype.$googleMapApi = googleMapApi
 }
 
 export default installGoogleMapPlugin

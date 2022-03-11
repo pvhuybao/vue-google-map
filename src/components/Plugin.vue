@@ -33,8 +33,11 @@ export default {
   },
 
   mounted() {
-    // this.map = this.$googleMapApi.initMap(this.center)
-    console.log('this.$googleMapApi', this.$googleMapApi)
+    // setTimeout(() => {
+      console.log('this.$googleMapApi', this.$googleMapApi)
+      console.log('this.$google', this.$google)
+      this.map = this.$googleMapApi.initMap(this.$refs.gmap, this.center)
+    // }, 1000)
   }
 };
 </script>
