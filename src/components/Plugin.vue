@@ -32,11 +32,11 @@ export default {
     }
   },
 
-  mounted() {
+  async mounted() {
+    await this.$google.loadGoogleApi()
     // setTimeout(() => {
-      console.log('this.$googleMapApi', this.$googleMapApi)
       console.log('this.$google', this.$google)
-      this.map = this.$googleMapApi.initMap(this.$refs.gmap, this.center)
+      this.map = this.$google.initMap(this.$refs.gmap, this.center)
     // }, 1000)
   }
 };
