@@ -8,7 +8,7 @@ import googleMapApi from '@/plugins/GoogleMapPlugin.js'
 Vue.config.productionTip = false
 
 const googleMapOptions = {
-  apiKey: "AIzaSyDIlRaooXNccBRbh5nnuT7dYEdejLkSvn4",
+  apiKey: "AIzaSyCF_A1pELIIycJ-J2R_dDb_PvJaeevoryU",
   version: "weekly",
   libraries: ["places"]
 }

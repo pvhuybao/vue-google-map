@@ -19,6 +19,21 @@ class googleMapApi {
         })
         return this.map
     }
+
+    createMarker(latLng) {
+        const marker = new this.google.maps.Marker({
+            position: latLng,
+            map: this.map,
+            title: "Marker Center",
+        });
+        return marker
+    }
+
+    async getAddress(latLng) {
+        let geocoder = new this.google.maps.Geocoder();
+        let result = await geocoder.geocode({ location: latLng })
+        return result
+      }
 }
 
 export default googleMapApi
